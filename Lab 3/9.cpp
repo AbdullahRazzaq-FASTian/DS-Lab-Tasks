@@ -10,6 +10,21 @@ public:
     Node(int val) : val(val), next(nullptr) {}
 };
 
+Node *reverse(Node *head)
+{
+    if (!head || !head->next)
+        return head;
+    Node *cur = head, *prev = nullptr, *next = nullptr;
+    while (cur)
+    {
+        next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+    return prev;
+}
+
 class LL
 {
 public:
@@ -56,43 +71,37 @@ public:
         }
         cout << cur->val << endl;
     }
-    void segregate()
+
+    void func()
     {
-        if (!head)
+        if (!head || !head->next)
             return;
-        Node oddHead(-1), evenHead(-1);
-        Node *odd = &oddHead, *even = &evenHead;
-        Node *cur = head;
-        while (cur)
+        Node *odd = head, *even = head->next, *evenHead = head->next;
+        while (even && even->next)
         {
-            if (cur->val & 1)
-            {
-                odd->next = cur;
-                odd = odd->next;
-            }
-            else
-            {
-                even->next = cur;
-                even = even->next;
-            }
-            cur = cur->next;
+            odd->next = odd->next->next;
+            even->next = even->next->next;
+            odd = odd->next;
+            even = even->next;
         }
-        odd->next = nullptr;
-        even->next = oddHead.next;
-        head = evenHead.next;
+        odd->next = reverse(evenHead);
+        tail = evenHead;
     }
 };
 
 int main()
 {
-    nl;
-    int arr[] = {17, 15, 8, 12, 10, 5, 4, 1, 7, 6};
-    LL list(arr, 10);
-    cout << "Before: " << endl;
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    LL list(arr, sizeof(arr) / sizeof(arr[0]));
+
+    cout << "\nBefore\n";
     list.print();
-    cout << "After: " << endl;
-    list.segregate();
+
+    list.func();
+
+    cout << "\nAfter\n";
     list.print();
     nl;
+
     return 0;
 }

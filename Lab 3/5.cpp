@@ -12,6 +12,22 @@ public:
 
 class LL
 {
+    void helper(int i, int size, Node *&ptr, bool &ans)
+    {
+        if (i > size / 2)
+        {
+            if (size & 1)
+                ptr = ptr->next;
+            return;
+        }
+        Node *temp = ptr;
+        ptr = ptr->next;
+        helper(i + 1, size, ptr, ans);
+        if (temp->val != ptr->val)
+            ans = false;
+        ptr = ptr->next;
+    }
+
 public:
     Node *head;
     Node *tail;
@@ -56,43 +72,24 @@ public:
         }
         cout << cur->val << endl;
     }
-    void segregate()
-    {
-        if (!head)
-            return;
-        Node oddHead(-1), evenHead(-1);
-        Node *odd = &oddHead, *even = &evenHead;
-        Node *cur = head;
-        while (cur)
-        {
-            if (cur->val & 1)
-            {
-                odd->next = cur;
-                odd = odd->next;
-            }
-            else
-            {
-                even->next = cur;
-                even = even->next;
-            }
-            cur = cur->next;
-        }
-        odd->next = nullptr;
-        even->next = oddHead.next;
-        head = evenHead.next;
+
+    bool isPalindrome(){
+        bool isPal = true;
+        Node *ptr = head;
+        helper(1,size, ptr, isPal);
+        return isPal;
     }
 };
 
 int main()
 {
+    int arr[] = {1, 2, 2, 1, 1};
+    LL list(arr, sizeof(arr)/sizeof(arr[0]));
+    cout << "\nList: ";
+    list.print();
+    if(list.isPalindrome()) cout << "List Is Palindrome";
+    else cout << "List is not Palindrme";
     nl;
-    int arr[] = {17, 15, 8, 12, 10, 5, 4, 1, 7, 6};
-    LL list(arr, 10);
-    cout << "Before: " << endl;
-    list.print();
-    cout << "After: " << endl;
-    list.segregate();
-    list.print();
     nl;
     return 0;
 }

@@ -56,42 +56,43 @@ public:
         }
         cout << cur->val << endl;
     }
-    void segregate()
+    void deleteAtPosition(size_t k)
     {
-        if (!head)
+        if (!head || (!head->next && k != 0))
             return;
-        Node oddHead(-1), evenHead(-1);
-        Node *odd = &oddHead, *even = &evenHead;
-        Node *cur = head;
-        while (cur)
+        if (k == 0)
         {
-            if (cur->val & 1)
-            {
-                odd->next = cur;
-                odd = odd->next;
-            }
+            Node *temp = head;
+            if (!head->next)
+                head = tail = nullptr;
             else
-            {
-                even->next = cur;
-                even = even->next;
-            }
-            cur = cur->next;
+                head = head->next;
+            delete temp;
+            return;
         }
-        odd->next = nullptr;
-        even->next = oddHead.next;
-        head = evenHead.next;
+        int cnt = 1;
+        Node *cur = head->next, *pre = head;
+        while (cur->next && cnt != k)
+            cnt++, pre = cur, cur = cur->next;
+        if (!cur->next && cnt == k)
+            pre->next = nullptr, tail = pre;
+        else if (!cur->next)
+            return;
+        else
+            pre->next = cur->next;
+        delete cur;
     }
 };
 
 int main()
 {
+    int arr[] = {1, 2, 3, 4, 5};
+    LL list(arr, sizeof(arr) / sizeof(arr[0]));
     nl;
-    int arr[] = {17, 15, 8, 12, 10, 5, 4, 1, 7, 6};
-    LL list(arr, 10);
-    cout << "Before: " << endl;
     list.print();
-    cout << "After: " << endl;
-    list.segregate();
+    size_t pos = 0;
+    cout << "\nEnter position of element to delete: ", cin >> pos;
+    list.deleteAtPosition(pos);
     list.print();
     nl;
     return 0;
