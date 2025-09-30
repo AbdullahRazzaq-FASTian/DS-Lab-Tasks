@@ -63,41 +63,47 @@ public:
         }
     }
 
-    void sort()
-    {
-        // Bubble sort
-        if (!head)
-            return;
-        Node *curi = head, *prev = nullptr;
-        while (curi->next)
-        {
-            Node *curj = curi->next;
-            while (curj)
-            {
-                Node *next = curj;
-                if (curi->val > curj->val)
-                {
-                    curi->next = curj->next;
-                    curj->next = curi;
-                    if(prev) prev->next = curj;
-                    if(head == curi)
-                        head = curj;
+    void sort() {
+        if (!head || !head->next) return;
+
+        bool swapped;
+        do {
+            swapped = false;
+            Node* cur = head;
+            Node* prev = nullptr;
+            while (cur && cur->next) {
+                Node* nextNode = cur->next;
+                if (cur->val > nextNode->val) {
+                    cur->next = nextNode->next;
+                    nextNode->next = cur;
+                    if(prev) prev->next = nextNode;
+                    else head = nextNode;
+                    swapped = true;
+                    prev = nextNode;
                 }
-                curj = next;
+                else{
+                    prev = cur;
+                    cur = cur->next;
+                }
             }
-            prev = curi;
-            curi = curi->next;
-        }
+        } while (swapped);
     }
+
 };
+/* 4 3 2 1 */
+/* 3 2 1 4 */
+/* 2 1 3 4 */
+/* 1 2 3 4 */
 
 int main()
 {
     int arr[] = {3, 2, 5, 1, 4};
     LL list(arr, sizeof(arr) / sizeof(arr[0]));
     nl;
+    cout << " Before Sorting: ";
     list.print();
     list.sort();
+    cout << " After Sorting: ";
     list.print();
     nl;
     return 0;
