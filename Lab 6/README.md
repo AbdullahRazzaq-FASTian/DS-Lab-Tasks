@@ -9,7 +9,7 @@ BCS-3A
 ## Task 02
 
 ### Transactions
-<img width="558" height="214" alt="image" src="https://github.com/user-attachments/assets/94392fa8-8fef-46bf-890c-96d23b62322a" />
+<img width="559" height="209" alt="image" src="https://github.com/user-attachments/assets/4adf6c16-662d-46f0-aac9-5bbd37c6baa4" />
 
 ### Random Transactions Selected
 <img width="382" height="564" alt="image" src="https://github.com/user-attachments/assets/24165c2a-6c31-4f33-9919-578449de66bf" />
