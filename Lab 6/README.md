@@ -7,11 +7,11 @@ BCS-3A
 <img width="384" height="98" alt="image" src="https://github.com/user-attachments/assets/50becf0e-ba7a-48ff-ade9-83664a92b14e" />
 
 ## Task 02
-#Random Transactions Selected
+# Random Transactions Selected
 <img width="382" height="564" alt="image" src="https://github.com/user-attachments/assets/24165c2a-6c31-4f33-9919-578449de66bf" />
-#After Poping
+# After Poping
 <img width="479" height="578" alt="image" src="https://github.com/user-attachments/assets/687c52a3-395f-4b57-8520-bc776cd15e63" />
-#Expression Conversion and Evaluation
+# Expression Conversion and Evaluation
 <img width="516" height="85" alt="image" src="https://github.com/user-attachments/assets/5c2c1c3d-ebac-4f5e-9cf0-e4506941b66d" />
 
 ## Task 03
