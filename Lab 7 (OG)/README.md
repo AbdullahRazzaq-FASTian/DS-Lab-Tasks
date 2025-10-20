@@ -4,3 +4,9 @@ Abdullah Razzaq
 BCS-3A  
 
 ## Task 01
+
+## Task 02
+<img width="508" height="146" alt="image" src="https://github.com/user-attachments/assets/1537a345-34db-40df-b91c-448cd8c59eeb" />
+
+## Task 03
+<img width="328" height="325" alt="image" src="https://github.com/user-attachments/assets/0f25943b-8970-4bba-b4e1-9fc1444b9c44" />
