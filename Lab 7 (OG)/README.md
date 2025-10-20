@@ -13,3 +13,8 @@ BCS-3A
 
 ## Task 04
 <img width="525" height="340" alt="image" src="https://github.com/user-attachments/assets/b8311457-a835-4618-9fe0-dadc16d10bd2" />
+
+## Task 05
+<img width="178" height="97" alt="image" src="https://github.com/user-attachments/assets/c45ca045-875e-47ac-a0b3-d10fa3ef39e2" />
+
+## Task 06
