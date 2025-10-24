@@ -23,3 +23,13 @@ BCS-3A
 
 ## Task 06b
 <img width="323" height="121" alt="image" src="https://github.com/user-attachments/assets/437671e2-f19b-440d-badc-8d8984fea62e" />
+
+## Task 07
+### Sorted Array
+<img width="398" height="520" alt="image" src="https://github.com/user-attachments/assets/d9c7ad38-ec4f-4b9c-8858-ff9086acbbd7" />
+
+### Reverse-Sorted Array
+<img width="426" height="520" alt="image" src="https://github.com/user-attachments/assets/450c7fb7-032b-431e-8d05-3bddba8a2b4f" />
+
+### Randomized Array
+<img width="415" height="515" alt="image" src="https://github.com/user-attachments/assets/e4453706-c0f3-48c5-bd03-aefebc4a84d9" />
