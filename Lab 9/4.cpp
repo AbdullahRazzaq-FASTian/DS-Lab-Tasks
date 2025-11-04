@@ -152,11 +152,13 @@ class AVL {
                 res = node->data;
                 return;
             }
+            kthSmallest(node->right, k, res);
         }
     }
 
     void kthLargest(Node* node, int& k, int& res){
         if (node != NULL) {
+            kthSmallest(node->left, k, res);
             kthSmallest(node->right, k, res);
             k--;
             if(k == 0) {
@@ -226,4 +228,5 @@ int main() {
     nl;
 
     return 0;
+
 }
