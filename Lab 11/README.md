@@ -13,6 +13,9 @@ BCS-3A
 <img width="308" height="141" alt="image" src="https://github.com/user-attachments/assets/8ecdb710-1e30-494d-8727-e988cc5079ee" />
 
 ## Task 4
+### Bruteforce method: O(n^4)
+### Hashing method: O(n^2)
+<img width="197" height="40" alt="image" src="https://github.com/user-attachments/assets/10edf59e-8cec-4920-9ec1-2877743bbdca" />
 
 ## Task 5
 <img width="373" height="79" alt="image" src="https://github.com/user-attachments/assets/626770e2-db9c-4c07-bde7-e1e3d83074f9" />
