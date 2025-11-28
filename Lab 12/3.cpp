@@ -2,41 +2,39 @@
 #define nl (cout << endl)
 #define f(i, s, e) for (int i = s; i < e; i++)
 #define fr(i, s, e) for (int i = s; i >= e; i--)
-#define N 1000
 using namespace std;
 
-int main()
-{
-    int n, e;
-    cin >> n >> e;
-    vector<pair<int, int>> adj[n + 1];
-    f(i, 0, e)
-    {
-        int u, v, w;
-        cin >> u >> v >> w;
-        adj[u].push_back({v, w});
-        adj[v].push_back({u, w});
-    }
+#define NO_OF_CHARS 256
 
-    function<int(int, int)> dijkstra = [&](int start, int end)->int {
-        int dist[n+1];
-        f(i, 1,n+1) dist[i] = -1000;
-        priority_queue<pair<int,int>> pq;
-        pq.push({0,start});
-        while(!pq.empty()){
-            auto [d1, u]  = pq.top();
-            pq.pop();
-            for(auto &[d2, v]: adj[u]){
-                if(d1 - d2 > dist[v]){
-                    dist[v] = d1 - d2;
-                    pq.push({dist[v], v});
-                }
-            }
+void badCharHeuristic(string pattern, int badChar[]) {
+    f(i,0,NO_OF_CHARS) badChar[i] = -1;
+    f(i,0,pattern.length()) badChar[(int)pattern[i]] = i;
+}
+
+void boyerMooreSearch(string text, string pattern) {
+    int n = text.length();
+    int m = pattern.length();
+    int badChar[NO_OF_CHARS];
+    badCharHeuristic(pattern, badChar);
+
+    int s = 0;
+    while(s <= n - m) {
+        int j = m - 1;
+        while(j >= 0 && pattern[j] == text[s + j]) j--;
+        if(j < 0) {
+            cout << "Pattern found at index " << s << endl;
+            s += (s + m < n) ? m - badChar[(int)text[s + m]] : 1;
+        } else {
+            int shift = max(1, j - badChar[(int)text[s + j]]);
+            s += shift;
         }
-        return -dist[end];
-    };
+    }
+}
 
-    cout << dijkstra(1,2) << endl;
-    cout << dijkstra(1,4) << endl;
-    return 0;
+int main() {
+    string text = "ACGTACGTGACG";
+    string pattern = "ACGS";
+    nl;
+    boyerMooreSearch(text, pattern);
+    nl;
 }
